@@ -1,7 +1,9 @@
 let http = require("http");
 
 let server = http.createServer((req, res) => {
-  res.end("<html><body>portal de noticias</body></html>");
+    let caminho = req.url;
+    caminho === '/' ? res.end("<html><body>portal de noticias</body></html>") :
+     res.end(`<html><body>portal de ${caminho.replace('/', '')}</body></html>`)
 });
 
 server.listen(5000);
